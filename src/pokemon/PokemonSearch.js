@@ -4,12 +4,17 @@ import './PokemonSearch.css';
 class PokemonSearch extends Component {
     state = {
       search: '',
-      page: 1
+      page: 1,
+      sortChoice: ''
     }
 
 
   handleSearch = ({ target }) => {
     this.setState({ search: target.value });
+  }
+
+  handleSortChoice = ({ target }) => {
+    this.setState({ sortChoice: target.value });
   }
 
 
@@ -26,7 +31,7 @@ class PokemonSearch extends Component {
 
   render() {
 
-    const { search } = this.state;
+    const { search, sortChoice } = this.state;
 
 
     return (
@@ -36,27 +41,22 @@ class PokemonSearch extends Component {
           name="search"
           value={search}
           placeholder="Search Pokemon"
-          onChange={this.handleNameSearch}
+          onChange={this.handleSearch}
         />
 
-        {/* <select
-          name="typeFilter"
-          value={typeFilter}
-          onChange={this.handleTypeChange}
+        <select
+          name="sort"
+          value={sortChoice}
+          onChange={this.handleSortChoice}
         >
-          <option value="">Sort Types</option>
-          {types.map(type => (
-            <option
-              key={type}
-              value={type}>
+          <option value="pokemon">name</option>
+          <option value="type">type</option>
 
-              {type}
+          
 
-            </option>
-          ))}
         </select>
 
-        <select
+        {/* <select
           name="sortDirection"
           value={sortDirection}
           onChange={this.handleSortChange}

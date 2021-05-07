@@ -22,24 +22,28 @@ class App extends Component {
   }
 
   async fetchPokemon() {
-    const { search, page } = this.state;
+    const { search, page, sortChoice } = this.state;
     
 
 
     const response = await request
       .get(POKEMON_API_URL)
       .query({ pokemon: search })
-      .query({ page: page });
-
+      .query({ page: page })
+      .query({ sort: sortChoice });
     
     this.setState({
       pokemon: response.body.results,
     });
   }
 
-  handleSearch = ({ search }) => {
+  handleSearch = ({ search, sortChoice }) => {
     this.setState(
-      { search: search, page: 1 },
+      { 
+        search: search, 
+        sortChoice: sortChoice,
+        page: 1 
+      },
       () => this.fetchPokemon()
     );
   }
