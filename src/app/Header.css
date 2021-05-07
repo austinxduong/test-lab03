@@ -1,0 +1,14 @@
+.Header {
+    font-family: biome;
+    background-color:mediumspringgreen;
+    color:lightyellow;
+    padding-left: 20px;
+    box-shadow: 0px 0px 5px mintcream;
+    text-align: center;
+  }
+  
+  .Header h1 {
+    font-weight: normal;
+    font-size: 2.5rem;
+    text-shadow: 1px 1px 1px mintcream;
+  }

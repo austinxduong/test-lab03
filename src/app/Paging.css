@@ -1,0 +1,6 @@
+.Paging {
+    display: grid;
+    align-items: center;
+    height: 70px;
+    width: 70px;
+  }
